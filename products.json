@@ -1,22 +1,6 @@
 {
   "products": [
     {
-      "name": "Contour Desk Organiser",
-      "price": 549,
-      "category": "Workspace",
-      "description": "Topographic-line pen and phone stand, prints in your choice of colour.",
-      "image": "images/products/sample-organiser.jpg",
-      "inStock": false
-    },
-    {
-      "name": "Name Tag Keyring",
-      "price": 149,
-      "category": "Keyrings & Bag Tags",
-      "description": "Custom name or initials, 6 colours available, 2-day turnaround.",
-      "image": "images/products/sample-keyring.jpg",
-      "inStock": false
-    },
-    {
       "inStock": true,
       "name": "Dancing Skeleton Aquarium Decor",
       "price": 129,
