@@ -23,6 +23,14 @@
       "description": "Custom name or initials, 6 colours available, 2-day turnaround.",
       "image": "images/products/sample-keyring.jpg",
       "inStock": true
+    },
+    {
+      "inStock": true,
+      "name": "skeleton baot",
+      "price": 199,
+      "category": "Home Decor",
+      "description": "asdwd",
+      "image": "images/products/sagar-logo.png"
     }
   ]
 }
