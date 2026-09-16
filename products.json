@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "name": "Layered Ganesha Idol",
+      "price": 899,
+      "category": "Pooja & Decor",
+      "description": "Multi-colour PLA idol, 15cm, matte finish. Made to order.",
+      "image": "images/products/sample-ganesha.jpg",
+      "inStock": true
+    },
+    {
+      "name": "Contour Desk Organiser",
+      "price": 549,
+      "category": "Workspace",
+      "description": "Topographic-line pen and phone stand, prints in your choice of colour.",
+      "image": "images/products/sample-organiser.jpg",
+      "inStock": true
+    },
+    {
+      "name": "Name Tag Keyring",
+      "price": 149,
+      "category": "Keyrings & Bag Tags",
+      "description": "Custom name or initials, 6 colours available, 2-day turnaround.",
+      "image": "images/products/sample-keyring.jpg",
+      "inStock": true
+    }
+  ]
+}

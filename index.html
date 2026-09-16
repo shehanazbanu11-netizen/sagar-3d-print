@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sagar 3D Prints — Made to order, printed in layers</title>
+<meta name="description" content="Custom 3D printed idols, decor, keyrings and gifts. Made to order, shipped across India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#eeece4;
+    --surface:#ffffff;
+    --ink:#1b211d;
+    --ink-soft:#4b534e;
+    --accent:#2f6f5e;
+    --accent-dark:#234f43;
+    --warm:#c1571e;
+    --line:#d8d4c7;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',system-ui,sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,.brand{
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* background grid — print bed motif */
+  .grid-bg{
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:32px 32px;
+    background-position:-1px -1px;
+  }
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(238,236,228,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{
+    max-width:1180px; margin:0 auto; padding:16px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .brand{font-size:1.25rem;}
+  .brand span{color:var(--accent);}
+  nav{display:flex; gap:22px; flex-wrap:wrap;}
+  nav a{
+    font-size:0.92rem; color:var(--ink-soft); text-decoration:none;
+    padding-bottom:2px; border-bottom:1px solid transparent;
+  }
+  nav a:hover{border-color:var(--accent); color:var(--ink);}
+  .cart-btn{
+    display:flex; align-items:center; gap:8px;
+    background:var(--ink); color:var(--bg);
+    border:none; padding:10px 16px; border-radius:var(--radius);
+    font-family:'IBM Plex Sans'; font-size:0.9rem; font-weight:500;
+    cursor:pointer;
+  }
+  .cart-count{
+    background:var(--accent); color:#fff;
+    border-radius:50%; width:20px; height:20px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.72rem;
+  }
+
+  /* hero */
+  .hero{
+    max-width:1180px; margin:0 auto; padding:72px 24px 56px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;
+  }
+  .hero h1{font-size:clamp(2.3rem,4.6vw,3.6rem); line-height:1.05;}
+  .hero p.lede{
+    font-size:1.08rem; color:var(--ink-soft); max-width:46ch; margin:22px 0 30px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 22px; border-radius:var(--radius);
+    font-weight:500; text-decoration:none; font-size:0.95rem;
+    border:1px solid var(--ink);
+  }
+  .btn-primary{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .btn-primary:hover{background:var(--accent-dark);}
+  .btn-ghost{background:transparent; color:var(--ink);}
+  .btn-ghost:hover{background:var(--surface);}
+  .hero-art{aspect-ratio:1/1; position:relative;}
+  .hero-art svg{width:100%; height:100%;}
+
+  section{max-width:1180px; margin:0 auto; padding:0 24px 80px;}
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:28px;
+    flex-wrap:wrap; gap:12px;
+  }
+  .section-head h2{font-size:1.5rem;}
+  .filters{display:flex; gap:8px; flex-wrap:wrap;}
+  .filter-btn{
+    background:transparent; border:1px solid var(--line); color:var(--ink-soft);
+    padding:7px 14px; border-radius:20px; font-size:0.85rem; cursor:pointer;
+    font-family:'IBM Plex Sans';
+  }
+  .filter-btn.active{background:var(--ink); color:var(--bg); border-color:var(--ink);}
+
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:22px;
+  }
+  .card{
+    background:var(--surface); border:1px solid var(--line);
+    display:flex; flex-direction:column;
+  }
+  .card-img{
+    aspect-ratio:1/1; background:var(--bg);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden; border-bottom:1px solid var(--line);
+  }
+  .card-img img{width:100%; height:100%; object-fit:cover;}
+  .card-body{padding:16px; display:flex; flex-direction:column; gap:6px; flex:1;}
+  .card-cat{font-size:0.72rem; color:var(--accent); font-weight:600; letter-spacing:0.02em;}
+  .card-name{font-size:1.02rem; font-weight:600;}
+  .card-desc{font-size:0.85rem; color:var(--ink-soft); flex:1;}
+  .card-foot{display:flex; align-items:center; justify-content:space-between; margin-top:8px;}
+  .price{font-family:'Space Grotesk'; font-weight:600; font-size:1.05rem;}
+  .add-btn{
+    background:var(--ink); color:var(--bg); border:none; padding:9px 14px;
+    border-radius:var(--radius); font-size:0.82rem; cursor:pointer; font-family:'IBM Plex Sans'; font-weight:500;
+  }
+  .add-btn:hover{background:var(--accent);}
+  .empty-note{color:var(--ink-soft); padding:40px 0; text-align:center;}
+
+  .how{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .how-item{border-top:2px solid var(--accent); padding-top:14px;}
+  .how-item h3{font-size:1.05rem; margin-bottom:6px;}
+  .how-item p{color:var(--ink-soft); font-size:0.9rem; margin:0;}
+
+  footer{border-top:1px solid var(--line); padding:36px 24px; }
+  .foot-inner{max-width:1180px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; color:var(--ink-soft); font-size:0.85rem;}
+
+  /* cart drawer */
+  .overlay{
+    position:fixed; inset:0; background:rgba(27,33,29,0.4); z-index:90;
+    opacity:0; pointer-events:none; transition:opacity .2s;
+  }
+  .overlay.open{opacity:1; pointer-events:auto;}
+  .drawer{
+    position:fixed; top:0; right:0; bottom:0; width:min(400px,100%);
+    background:var(--surface); z-index:100; transform:translateX(100%);
+    transition:transform .25s ease; display:flex; flex-direction:column;
+    border-left:1px solid var(--line);
+  }
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{
+    padding:20px; border-bottom:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .drawer-head button{background:none; border:none; font-size:1.3rem; cursor:pointer; color:var(--ink);}
+  .drawer-items{flex:1; overflow-y:auto; padding:12px 20px;}
+  .drawer-item{
+    display:flex; gap:12px; padding:14px 0; border-bottom:1px solid var(--line);
+  }
+  .drawer-item img{width:56px; height:56px; object-fit:cover; border:1px solid var(--line);}
+  .drawer-item-info{flex:1;}
+  .drawer-item-info .name{font-weight:500; font-size:0.92rem;}
+  .qty-row{display:flex; align-items:center; gap:10px; margin-top:6px;}
+  .qty-row button{
+    width:24px; height:24px; border:1px solid var(--line); background:none;
+    cursor:pointer; font-size:0.9rem;
+  }
+  .remove-link{font-size:0.78rem; color:var(--warm); background:none; border:none; cursor:pointer; padding:0; margin-top:6px;}
+  .drawer-foot{padding:18px 20px; border-top:1px solid var(--line);}
+  .total-row{display:flex; justify-content:space-between; font-weight:600; margin-bottom:14px; font-family:'Space Grotesk';}
+  .checkout-btn{
+    width:100%; background:#25D366; color:#fff; border:none; padding:14px;
+    border-radius:var(--radius); font-weight:600; font-size:0.95rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  .checkout-note{font-size:0.78rem; color:var(--ink-soft); margin-top:10px; text-align:center;}
+
+  @media (max-width:820px){
+    .hero{grid-template-columns:1fr; padding-top:40px;}
+    .hero-art{max-width:280px; margin:0 auto;}
+    nav{display:none;}
+    .how{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body class="grid-bg">
+
+<header>
+  <div class="bar">
+    <div class="brand">Sagar<span>.</span>3D Prints</div>
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#how">How it works</a>
+      <a id="whatsapp-link" href="#" target="_blank" rel="noopener">Custom order</a>
+    </nav>
+    <button class="cart-btn" onclick="openCart()">
+      Cart <span class="cart-count" id="cart-count">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Every idea, printed<br>one layer at a time.</h1>
+    <p class="lede">Custom 3D printed idols, home decor, keyrings and gifts — designed and printed to order, shipped anywhere in India.</p>
+    <div class="hero-ctas">
+      <a href="#shop" class="btn btn-primary">Browse the catalog</a>
+      <a id="whatsapp-hero" href="#" target="_blank" rel="noopener" class="btn btn-ghost">Request a custom print</a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#2f6f5e" stroke-width="1.4">
+        <circle cx="200" cy="200" r="40" opacity="0.9"/>
+        <circle cx="200" cy="200" r="70" opacity="0.75"/>
+        <circle cx="200" cy="200" r="100" opacity="0.6"/>
+        <circle cx="200" cy="200" r="130" opacity="0.45"/>
+        <circle cx="200" cy="200" r="160" opacity="0.3"/>
+        <circle cx="200" cy="200" r="190" opacity="0.18"/>
+      </g>
+      <g stroke="#c1571e" stroke-width="1.2" opacity="0.8">
+        <line x1="200" y1="10" x2="200" y2="390"/>
+        <line x1="10" y1="200" x2="390" y2="200"/>
+      </g>
+      <circle cx="200" cy="200" r="6" fill="#1b211d"/>
+    </svg>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="section-head">
+    <h2>Catalog</h2>
+    <div class="filters" id="filters"></div>
+  </div>
+  <div class="grid" id="product-grid">
+    <p class="empty-note">Loading products…</p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="section-head"><h2>How ordering works</h2></div>
+  <div class="how">
+    <div class="how-item">
+      <h3>1. Pick or request a design</h3>
+      <p>Add a catalog item to your cart, or message us your own idea, size and colour.</p>
+    </div>
+    <div class="how-item">
+      <h3>2. Confirm on WhatsApp</h3>
+      <p>Send your cart — we'll confirm price, print time and shipping in chat.</p>
+    </div>
+    <div class="how-item">
+      <h3>3. Printed and shipped</h3>
+      <p>Each piece is printed to order and packed carefully for delivery across India.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div>Sagar 3D Prints — made to order, printed in India.</div>
+    <div>Order and enquiries via WhatsApp</div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h3>Your cart</h3>
+    <button onclick="closeCart()">×</button>
+  </div>
+  <div class="drawer-items" id="drawer-items"></div>
+  <div class="drawer-foot">
+    <div class="total-row"><span>Total</span><span id="cart-total">₹0</span></div>
+    <button class="checkout-btn" onclick="checkoutWhatsApp()">Send order on WhatsApp</button>
+    <p class="checkout-note">No online payment — we confirm price & shipping in chat.</p>
+  </div>
+</div>
+
+<script>
+  // ⚠️ Set your WhatsApp business number here (country code, no + or spaces)
+  const WHATSAPP_NUMBER = "918939188263";
+
+  let PRODUCTS = [];
+  let cart = JSON.parse(localStorage.getItem('sagar_cart') || '[]');
+
+  const waBase = `https://wa.me/${WHATSAPP_NUMBER}`;
+  document.getElementById('whatsapp-link').href = `${waBase}?text=${encodeURIComponent("Hi! I'd like to ask about a custom 3D print.")}`;
+  document.getElementById('whatsapp-hero').href = `${waBase}?text=${encodeURIComponent("Hi! I have an idea for a custom 3D print.")}`;
+
+  fetch('products.json')
+    .then(r => r.json())
+    .then(data => {
+      PRODUCTS = data.products || [];
+      renderFilters();
+      renderGrid('All');
+    })
+    .catch(() => {
+      document.getElementById('product-grid').innerHTML =
+        '<p class="empty-note">Could not load the catalog. Check that products.json is in the same folder.</p>';
+    });
+
+  function renderFilters(){
+    const cats = ['All', ...new Set(PRODUCTS.map(p => p.category))];
+    const wrap = document.getElementById('filters');
+    wrap.innerHTML = cats.map((c,i) =>
+      `<button class="filter-btn ${i===0?'active':''}" data-cat="${c}" onclick="selectFilter('${c}', this)">${c}</button>`
+    ).join('');
+  }
+  function selectFilter(cat, btn){
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderGrid(cat);
+  }
+  function renderGrid(cat){
+    const list = cat === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.category === cat);
+    const grid = document.getElementById('product-grid');
+    if(!list.length){ grid.innerHTML = '<p class="empty-note">No products in this category yet.</p>'; return; }
+    grid.innerHTML = list.map((p, i) => {
+      const idx = PRODUCTS.indexOf(p);
+      return `
+      <div class="card">
+        <div class="card-img"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="card-body">
+          <span class="card-cat">${p.category}</span>
+          <span class="card-name">${p.name}</span>
+          <p class="card-desc">${p.description || ''}</p>
+          <div class="card-foot">
+            <span class="price">₹${p.price}</span>
+            <button class="add-btn" onclick="addToCart(${idx})">${p.inStock === false ? 'Notify me' : 'Add to cart'}</button>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  function addToCart(idx){
+    const p = PRODUCTS[idx];
+    const existing = cart.find(i => i.name === p.name);
+    if(existing) existing.qty += 1;
+    else cart.push({name:p.name, price:p.price, image:p.image, qty:1});
+    saveCart();
+    openCart();
+  }
+  function changeQty(i, delta){
+    cart[i].qty += delta;
+    if(cart[i].qty <= 0) cart.splice(i,1);
+    saveCart();
+  }
+  function removeItem(i){ cart.splice(i,1); saveCart(); }
+  function saveCart(){
+    localStorage.setItem('sagar_cart', JSON.stringify(cart));
+    renderCart();
+  }
+  function renderCart(){
+    const wrap = document.getElementById('drawer-items');
+    const count = cart.reduce((s,i)=>s+i.qty,0);
+    document.getElementById('cart-count').textContent = count;
+    if(!cart.length){
+      wrap.innerHTML = '<p class="empty-note">Your cart is empty.</p>';
+    } else {
+      wrap.innerHTML = cart.map((item,i) => `
+        <div class="drawer-item">
+          <img src="${item.image}" onerror="this.style.display='none'">
+          <div class="drawer-item-info">
+            <div class="name">${item.name}</div>
+            <div>₹${item.price} × ${item.qty}</div>
+            <div class="qty-row">
+              <button onclick="changeQty(${i},-1)">−</button>
+              <span>${item.qty}</span>
+              <button onclick="changeQty(${i},1)">+</button>
+            </div>
+            <button class="remove-link" onclick="removeItem(${i})">Remove</button>
+          </div>
+        </div>`).join('');
+    }
+    const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+    document.getElementById('cart-total').textContent = `₹${total}`;
+  }
+  function openCart(){ document.getElementById('drawer').classList.add('open'); document.getElementById('overlay').classList.add('open'); }
+  function closeCart(){ document.getElementById('drawer').classList.remove('open'); document.getElementById('overlay').classList.remove('open'); }
+  function checkoutWhatsApp(){
+    if(!cart.length){ alert('Your cart is empty.'); return; }
+    let msg = "Hi! I'd like to order:\n\n";
+    cart.forEach(i => msg += `• ${i.name} × ${i.qty} — ₹${i.price*i.qty}\n`);
+    const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+    msg += `\nTotal: ₹${total}\n\nPlease confirm availability and shipping.`;
+    window.open(`${waBase}?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
+  renderCart();
+</script>
+</body>
+</html>
