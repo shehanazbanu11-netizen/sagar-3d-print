@@ -1,20 +1,12 @@
 {
   "products": [
     {
-      "name": "Layered Ganesha Idol",
-      "price": 899,
-      "category": "Pooja & Decor",
-      "description": "Multi-colour PLA idol, 15cm, matte finish. Made to order.",
-      "image": "images/products/sample-ganesha.jpg",
-      "inStock": true
-    },
-    {
       "name": "Contour Desk Organiser",
       "price": 549,
       "category": "Workspace",
       "description": "Topographic-line pen and phone stand, prints in your choice of colour.",
       "image": "images/products/sample-organiser.jpg",
-      "inStock": true
+      "inStock": false
     },
     {
       "name": "Name Tag Keyring",
@@ -22,15 +14,15 @@
       "category": "Keyrings & Bag Tags",
       "description": "Custom name or initials, 6 colours available, 2-day turnaround.",
       "image": "images/products/sample-keyring.jpg",
-      "inStock": true
+      "inStock": false
     },
     {
       "inStock": true,
-      "name": "skeleton baot",
-      "price": 199,
+      "name": "Dancing Skeleton Aquarium Decor",
+      "price": 129,
       "category": "Home Decor",
-      "description": "asdwd",
-      "image": "images/products/sagar-logo.png"
+      "description": "",
+      "image": "images/products/4c8eb27c008fe987.webp"
     }
   ]
 }
