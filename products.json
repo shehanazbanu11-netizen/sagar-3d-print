@@ -1,20 +1,20 @@
 {
   "products": [
     {
-      "name": "Contour Desk Organiser",
-      "price": 549,
-      "category": "Workspace",
-      "description": "Topographic-line pen and phone stand, prints in your choice of colour.",
-      "image": "images/products/sample-organiser.jpg",
+      "name": "Tissue box for car sun visor",
+      "price": 499,
+      "category": "Gifting",
+      "description": "Tissue box for car sun visor",
+      "image": "images/products/2025-03-05_3664f6e18ab63.webp",
       "inStock": false
     },
     {
       "name": "Name Tag Keyring",
-      "price": 149,
+      "price": 49,
       "category": "Keyrings & Bag Tags",
-      "description": "Custom name or initials, 6 colours available, 2-day turnaround.",
-      "image": "images/products/sample-keyring.jpg",
-      "inStock": false
+      "description": "Custom name or initials, 6 colours available",
+      "image": "images/products/keyvhain.webp",
+      "inStock": true
     },
     {
       "inStock": true,
