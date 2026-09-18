@@ -37,6 +37,14 @@
       "price": 99,
       "image": "images/products/76406.jpg",
       "category": "Keyrings & Bag Tags"
+    },
+    {
+      "inStock": true,
+      "name": "3D-Printed Traditional Kumkum Chimil (Chittie / Storage Box)",
+      "price": 99,
+      "category": "Pooja & Decor",
+      "description": "Elevate your pooja setup and traditional gift collections with our intricately designed 3D-printed Kumkum Chimil. Built to blend cultural tradition with modern precision, this compact container is ideal for storing kumkum, turmeric (haldi), sandal paste (chandan), or small sacred keepsakes.\n​Key Features:\n​Intricate Traditional Design: Styled with classic Indian motifs, featuring a smooth, secure lid to keep contents fresh and spill-free.\n​Lightweight & Durable: Engineered from high-quality, eco-friendly plastic—resistant to drops, unlike traditional brass or clay containers.\n​Multi-Purpose Use: Perfect for daily home pooja essentials, temple visits, car dashboards, or return gifts for functions.\n​Vibrant Finishes: Available in rich metallic shades (like Silk Gold and Antique Brass) and classic colors.",
+      "image": "images/products/73287.jpg"
     }
   ]
 }
