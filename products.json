@@ -9,20 +9,20 @@
       "inStock": false
     },
     {
-      "name": "Name Tag Keyring",
-      "price": 49,
-      "category": "Keyrings & Bag Tags",
-      "description": "Custom name or initials, 6 colours available",
-      "image": "images/products/keyvhain.webp",
-      "inStock": true
-    },
-    {
       "inStock": true,
       "name": "Dancing Skeleton Aquarium Decor",
       "price": 129,
       "category": "Home Decor",
       "description": "",
       "image": "images/products/4c8eb27c008fe987.webp"
+    },
+    {
+      "name": "Name Tag Keyring",
+      "price": 49,
+      "category": "Keyrings & Bag Tags",
+      "description": "Custom 3D-Printed Name Keychain\n​Make it personal with our customizable 3D-printed Name Keychains. Precision-crafted with high-quality, lightweight materials, these keychains are perfect for personalizing your keys, backpacks, luggage, or gifting to friends and family.\n​Key Features:\n​Fully Personalized: Custom-printed with any name, word, or initials of your choice.\n​Durable & Lightweight: Made from sturdy, eco-friendly plastic designed for daily pocket and bag wear without weighing you down.\n​Vibrant Color Options: Choose from a wide range of colors and dual-tone finishes to match your style.\n​Versatile Everyday Use: Comes equipped with a strong, rust-resistant metal key ring and chain attachment.",
+      "image": "images/products/keyvhain.webp",
+      "inStock": true
     },
     {
       "inStock": true,
